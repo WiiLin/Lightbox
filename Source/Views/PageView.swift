@@ -62,8 +62,9 @@ class PageView: UIScrollView {
     super.init(frame: CGRect.zero)
 
     configure()
-
-    fetchImage()
+    if LightboxConfig.fristFetchAll {
+        fetchImage()
+    }
   }
 
   required init?(coder aDecoder: NSCoder) {
@@ -113,7 +114,8 @@ class PageView: UIScrollView {
   }
 
   // MARK: - Fetch
-  private func fetchImage () {
+  func fetchImage () {
+    guard imageView.image == nil else { return }
     loadingIndicator.alpha = 1
     self.image.addImageTo(imageView) { [weak self] image in
       guard let self = self else {

@@ -91,7 +91,9 @@ open class LightboxController: UIViewController {
       }
 
       reconfigurePagesForPreload()
-
+        if !LightboxConfig.fristFetchAll {
+            pageViews[currentPage].fetchImage()
+        }
       pageDelegate?.lightboxController(self, didMoveToPage: currentPage)
 
       if let image = pageViews[currentPage].imageView.image, dynamicBackground {

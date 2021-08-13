@@ -4,6 +4,10 @@ import AVFoundation
 import Imaginary
 
 public class LightboxConfig {
+    
+  /// Whether to show status bar while Lightbox is presented
+  public static var fristFetchAll = false
+    
   /// Whether to show status bar while Lightbox is presented
   public static var hideStatusBar = true
 
